@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0, user-scalable=0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>家庭探索发现中心</title>
+    <!-- <title>时光姓氏源流查询平台</title> -->
+    <script type="text/javascript">
+      if(!window.location.port){
+        var targetProtocol = "https:";
+        if (window.location.protocol != targetProtocol){
+          window.location.href = targetProtocol + window.location.href.substring(window.location.protocol.length);
+        }
+      } 
+    </script>  
+    <link href='https://cdn.qingtime.cn/swiper.min.css' rel='stylesheet' type='text/css' /> 
+  </head>
+  <body touch-action="none">
+    <noscript>
+      <strong>We're sorry but puku doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <script src="https://cdn.qingtime.cn/axios.min.js"></script>
+    <script type="text/javascript" src="https://cdn.qingtime.cn/qrcode.min.js"></script>
+    <script src="https://cdn.qingtime.cn/hammer.min.js"></script>
+    <script type="text/javascript" src="https://cdn.qingtime.cn/swiper.min.js"></script>
+    <script src="https://cdn.qingtime.cn/pako.min.js"></script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=a767142e716c229c9212de261f2f47a5&plugin=AMap.Heatmap,AMap.MarkerClusterer,AMap.DistrictSearch,AMap.DistrictLayer,AMap.Geocoder,AMap.MassMarks"></script>
+    <script src="https://webapi.amap.com/ui/1.1/main.js?v=1.1.1"></script>
+  </body>
+</html>
