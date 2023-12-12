@@ -90,23 +90,21 @@ export default {
     overflow: hidden;
 }
 .surnameExplorer_wrap_content1{
+    margin: 200px 108px 0 108px;
     position: relative;
     width: calc(100% - 216px);
-    height: 100%;
-    padding: 0 108px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
+    /* height: 320px; */
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 .surnameExplorer_wrap_content_surname1{
     display: block;
     color: #fff;
     font-size: 50px;
     display: flex;
-    margin-top: 200px;
 }
 .surnameExplorer_wrap_content_surname1 li{
-    margin: 0 20px;
+    margin-right: 40px;
     text-align: center;
     width: 320px;
     height: 320px;

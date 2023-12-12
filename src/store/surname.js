@@ -43,7 +43,7 @@ const state = {
     genealogySurnameList: [],
     title: '家文化探索中心',
     customName: '',
-    catalogSource: '1',
+    catalogSource: ADS.getLocalStorage('catalogSource') || '1',
 }
 
 const actions = {

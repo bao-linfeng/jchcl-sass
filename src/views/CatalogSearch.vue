@@ -22,34 +22,27 @@
                     <li @click="isSidebar = false">收起筛选</li>
                 </ul>
                 <div class="statistics">
-                    <h3 class="title">姓氏</h3>
-                    <ul class="list-wrap style1">
-                        <li class="li" :class="{active: surnameO == item.surname}" v-for="(item, index) in genealogySurnameList" :key="index" @click="changeSurname(item)">{{item.surname}}({{item.length}})</li>
-                    </ul>
-                    <h3 class="title">堂号</h3>
-                    <ul class="list-wrap style1">
-                        <li class="li" :class="{active: hall == item.hall}" v-for="(item, index) in listHall" :key="index" @click="changeProperty('hall', item.hall)">{{item.hall}}({{item.length}})</li>
-                    </ul>
-                    <h3 class="title">修撰者</h3>
-                    <ul class="list-wrap style1">
-                        <li class="li" :class="{active: authors == item.authors}" v-for="(item, index) in listAuthors" :key="index" @click="changeProperty('authors', item.authors)">{{item.authors}}({{item.length}})</li>
-                    </ul>
+                    <div class="box">
+                        <h3 class="title">姓氏({{count}})</h3>
+                        <ul class="list-wrap style1">
+                            <li class="li" :class="{active: surnameO == item.surname}" v-for="(item, index) in genealogySurnameList" :key="index" @click="changeSurname(item)">{{item.surname}}({{item.length}})</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3 class="title">堂号</h3>
+                        <ul class="list-wrap style1">
+                            <li class="li" :class="{active: hall == item.hall}" v-for="(item, index) in listHall" :key="index" @click="changeProperty('hall', item.hall)">{{item.hall}}({{item.length}})</li>
+                        </ul>
+                    </div>
+                    <div class="box">
+                        <h3 class="title">修撰者</h3>
+                        <ul class="list-wrap style1">
+                            <li class="li" :class="{active: authors == item.authors}" v-for="(item, index) in listAuthors" :key="index" @click="changeProperty('authors', item.authors)">{{item.authors}}({{item.length}})</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <!-- <ul class="surname-wrap">
-            <li class="head">
-                <i class="green">全部</i>
-                <i>{{count}}套</i>
-            </li>
-            <div class="surname-box style1">
-                <li :class="{active: surnameO == item.surname}" v-for="(item, index) in genealogySurnameList" :key="index" @click="changeSurname(item)">
-                    <i>{{item.surname}}</i>
-                    <i>{{item.length}}套</i>
-                </li>
-            </div>
-        </ul> -->
     </div>
 </template>
 
@@ -108,7 +101,12 @@ export default {
             this.getCatalogHallAuthors(this.surnameO);
         },
         changeProperty(p, v){
-            this[p] = v;
+            if(this[p] === v){
+                this[p] = '';
+            }else{
+                this[p] = v;
+            }
+            
             this.getGenealogy(this.surnameO);
         },
         changeNav(data){
@@ -196,9 +194,11 @@ export default {
         width: 100%;
         height: calc(100% - 176px);
         display: flex;
+        overflow: hidden;
         .main-right{
             position: relative;
             width: 218px;
+            height: 100%;
             padding: 0 11px;
         }
     }
@@ -294,17 +294,22 @@ export default {
     }
 }
 .statistics{
-    padding: 20px;
+    height: calc(100% - 45px);
+    padding: 25px 20px 20px 20px;
     font-size: 16px;
+    .box{
+        height: calc(33.33% - 20px);
+        margin-top: 20px;
+    }
     .title{
         border-left: 4px solid #333;
         padding-left: 10px;
-        margin: 20px 0;
+        margin-bottom: 20px;
         height: 14px;
         line-height: 14px;
     }
     .list-wrap{
-        height: 100px;
+        height: calc(100% - 34px);
         overflow-y: auto;
         .li{
             text-indent: 14px;

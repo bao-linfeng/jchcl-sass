@@ -89,7 +89,7 @@ export default {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: #f1f1f1;
+    /* background-color: #f1f1f1; */
     /* background: url('../assets/linkPage/bg.jpg') 50% 50% no-repeat;
     background-size: cover; */
 }
