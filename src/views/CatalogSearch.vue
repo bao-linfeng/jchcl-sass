@@ -4,7 +4,10 @@
         <div class="main">
             <div class="catalog-content" :class="{active: !isSidebar}">
                 <ul class="nav-wrap">
-                    <li :class="{active: isShow == item.value}" v-show="index <= 1 || index == 2 && !isSidebar" v-for="(item, index) in navList" :key="index" @click="changeNav(item)">{{item.label}}</li>
+                    <li :class="{active: isShow == item.value}" v-show="index <= 1 || index == 2 && !isSidebar" v-for="(item, index) in navList" :key="index" @click="changeNav(item)">
+                        <img class="icon" :src="require('../assets/icon/'+item.label+(isShow == item.value ? '选中' : '')+'.svg')" />
+                        <i>{{item.label}}</i>
+                    </li>
                 </ul>
                 <div class="scroll-wrap">
                     <img class="left" src="../assets/scrollLeft.png" alt="">
@@ -19,7 +22,10 @@
                     <img class="right" src="../assets/scrollRight.png" alt="">
                 </div>
                 <ul class="nav-wrap active">
-                    <li @click="isSidebar = false">收起筛选</li>
+                    <li @click="isSidebar = false">
+                        <img class="icon" :src="require('../assets/icon/收起.svg')" />
+                        <i>收起筛选</i>
+                    </li>
                 </ul>
                 <div class="statistics">
                     <div class="box">
@@ -66,7 +72,7 @@ export default {
             isShow: 1,
             navList: [
                 {'label': '列表', 'value': '1'},
-                {'label': '图库', 'value': '2'},
+                {'label': '图列', 'value': '2'},
                 {'label': '展开筛选', 'value': '3'},
             ],
             count: 0,
@@ -194,7 +200,7 @@ export default {
         width: 100%;
         height: calc(100% - 176px);
         display: flex;
-        overflow: hidden;
+        // overflow: hidden;
         .main-right{
             position: relative;
             width: 218px;
@@ -266,8 +272,19 @@ export default {
     li{
         cursor: pointer;
         margin-left: 20px;
+        display: flex;
+        align-items: center;
+        .icon{
+            height: 12px;
+            margin-right: 5px;
+        }
+        i{
+            color: #333;
+        }
         &.active{
-            color: #358acd;
+            i{
+                color: rgb(47, 183, 127);
+            }
         }
     }
 }

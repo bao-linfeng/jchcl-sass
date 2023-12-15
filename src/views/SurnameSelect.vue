@@ -102,6 +102,7 @@ export default {
     color: #fff;
     font-size: 50px;
     display: flex;
+    justify-content: center;
 }
 .surnameExplorer_wrap_content_surname1 li{
     margin-right: 40px;
